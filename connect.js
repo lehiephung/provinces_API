@@ -3,14 +3,15 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const connection = mysql2.createConnection({
-    host: process.env.MYSQLHOST,
-    port: process.env.MYSQLPORT,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE
+    host: process.env.DB_HOST || process.env.MYSQLHOST,
+    port: process.env.DB_PORT || process.env.MYSQLPORT,
+    user: process.env.DB_USER || process.env.MYSQLUSER,
+    password: process.env.DB_PASSWORD || process.env.MYSQLPASSWORD,
+    database: process.env.DB_NAME || process.env.MYSQLDATABASE
 });
 
 module.exports = connection.promise();
+
 
 // const provinces = Object.values(JSON.parse(fs.readFileSync('./data/province.json', 'utf8')));
 // const wards = Object.values(JSON.parse(fs.readFileSync('./data/ward.json', 'utf8')));
