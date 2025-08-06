@@ -2,7 +2,7 @@ const mysql2 = require('mysql2');
 const dotenv = require('dotenv');
 dotenv.config();
 
-console.log({
+const connection = mysql2.createConnection({
     host: process.env.MYSQLHOST,
     port: process.env.MYSQLPORT,
     user: process.env.MYSQLUSER,
@@ -10,7 +10,7 @@ console.log({
     database: process.env.MYSQLDATABASE
 });
 
-const connection = mysql2.createConnection({
+console.log({
     host: process.env.MYSQLHOST,
     port: process.env.MYSQLPORT,
     user: process.env.MYSQLUSER,
