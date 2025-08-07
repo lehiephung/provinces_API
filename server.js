@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const provinceRoutes = require("./routes/province_Routes");
 const wardRoutes = require("./routes/ward_Routes");
