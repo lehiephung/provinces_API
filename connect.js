@@ -7,16 +7,19 @@ const connection = mysql2.createPool({
     port: process.env.MYSQLPORT,
     user: process.env.MYSQLUSER,
     password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE
+    database: process.env.MYSQLDATABASE,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
-connection.connect(err => {
-    if (err) {
-        console.error('❌ Error connecting to MySQL:', err.message);
-    } else {
-        console.log('✅ Connected to MySQL');
-    }
-});
+// connection.connect(err => {
+//     if (err) {
+//         console.error('Error connecting to MySQL:', err.message);
+//     } else {
+//         console.log('Connected to MySQL');
+//     }
+// });
 
 
 module.exports = connection.promise();
